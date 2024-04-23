@@ -1,0 +1,23 @@
+.about-me{
+    text-align: center;
+    margin: 10% 15rem;
+    color: var(--body_color);
+}
+.about-me h1{
+    font-size: 60px;
+}
+.about-me p{
+    font-size: 32px;
+}
+
+@media screen and (max-width: 903px) {
+    .about-me{
+        margin: 5rem  7%;
+    }
+    .about-me p{
+        font-size: 25px;
+    }
+    .about-me h1{
+        font-size: 40px;
+    }
+}

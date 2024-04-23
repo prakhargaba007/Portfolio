@@ -1,0 +1,51 @@
+.container2 h1 {
+  text-align: center;
+  color: var(--body_color);
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding-top: 50px;
+  justify-content: center;
+  /* justify-self: center; */
+}
+
+.container2 {
+  margin: 50px 15%;
+}
+.list h2,
+.list a {
+  margin: 0;
+}
+
+.list {
+  border: 2px solid rgba(0, 0, 0, 0.573);
+  padding: 10px;
+  background-color: aqua;
+  border-radius: 5px;
+  width: 200px;
+  /* width: calc(30% - 60px); */
+}
+.list a {
+  color: blue;
+}
+
+@media screen and (max-width: 480px) {
+  .list {
+    width: 140px;
+
+  }
+  .list h2{
+    font-size: 1.15rem;
+  }
+  .list a {
+    font-size: 1rem;
+  }
+  .links {
+    margin: 1px;
+  }
+  .container2 {
+    margin: 50px 5px;
+  }
+}
