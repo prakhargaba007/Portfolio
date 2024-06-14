@@ -65,9 +65,9 @@ function Header() {
       </div>
       <div className="login-button">
         <DarkMode />
-        <Link to="/signup?mode=signup">
+        {/* <Link to="/signup?mode=signup">
           <Button>Sign Up</Button>
-        </Link>
+        </Link> */}
       </div>
     </header>
   );
