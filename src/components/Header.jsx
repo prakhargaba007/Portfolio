@@ -1,58 +1,41 @@
-import { Link, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
-import Button from "./Button";
 import DarkMode from "./DarkMode/DarkMode/DarkMode";
-import { useState } from "react";
 
 function Header() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleToggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
+
   return (
-    <header>
+    <header className="header">
       <div className="container">
-        <div>
+        <div className="logo">
           <NavLink to="/">
             <h1>
-              <span>PORTOFOLIO WEBSITE</span>
+              <span>PORTFOLIO</span> WEBSITE
             </h1>
           </NavLink>
         </div>
         <nav>
-          <ul
-            aria-disabled
-            className={`nav-links ${isMenuOpen ? "active" : ""}`}
-          >
+          <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
             <li>
-              <a
-                href="#home"
-                className={({ isActive }) => (isActive ? "active" : undefined)}
-              >
-                Home
-              </a>
+              <a href="#home">Home</a>
             </li>
             <li>
-              <a
-                href="#about"
-                className={({ isActive }) => (isActive ? "active" : undefined)}
-              >
-                About
-              </a>
+              <a href="#about">About</a>
             </li>
             <li>
-              <a
-                href="#projects"
-                className={({ isActive }) => (isActive ? "active" : undefined)}
-              >
-                Project
-              </a>
+              <a href="#projects">Projects</a>
             </li>
             <li>
               <a
                 href="https://github.com/prakhargaba007"
-                className={({ isActive }) => (isActive ? "active" : undefined)}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 GitHub
               </a>
@@ -65,9 +48,6 @@ function Header() {
       </div>
       <div className="login-button">
         <DarkMode />
-        {/* <Link to="/signup?mode=signup">
-          <Button>Sign Up</Button>
-        </Link> */}
       </div>
     </header>
   );

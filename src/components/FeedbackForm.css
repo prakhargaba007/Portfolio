@@ -1,78 +1,101 @@
- .feedback-form {
-  max-width: 400px;
-  margin: 40px auto;
+/* FeedbackForm.css */
+
+.feedback-form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .feedback-form h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 1.5rem;
   color: #333;
-  color: var(--body_color);
 }
 
-.feedback-form div {
-  margin-bottom: 15px;
+.form-group {
+  margin-bottom: 1rem;
 }
 
-.feedback-form label {
+.form-group label {
   display: block;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  color: var(--body_color);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
 }
 
-.feedback-form input,
-.feedback-form textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
-  padding: 8px;
-  font-size: 0.9rem;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.feedback-form textarea {
-  resize: vertical; 
-}
-
-.feedback-form .control {
-  margin-top: 15px;
-}
-.terms-and-conditions {
-  display: flex;
-}
-
-.control input{
-  width: auto;
-  margin-right: 5px;
-}
-
-/* .control {
-  display: flex;
-  gap: 100px;
-} */
-.feedback-form p {
-  margin-top: 20px;
-  text-align: right;
-}
-
-.feedback-form button {
-  padding: 10px 15px;
   font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox input {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.form-group.checkbox label {
+  font-weight: normal;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.submit-message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* You may need to adjust these button styles based on your Button component */
+button {
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.feedback-form button[type="reset"] {
-  background-color: #ccc;
-  margin-right: 10px;
+button[type="reset"] {
+  background-color: #6c757d;
+  color: white;
 }
 
-@media screen and (max-width: 450px) {
-  .feedback-form {
-    margin: 40px 30px;
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .feedback-form-container {
+    margin: 1rem;
+    padding: 1rem;
   }
-} 
+}
