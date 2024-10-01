@@ -63,6 +63,8 @@
   margin-top: 1rem;
   text-align: center;
   font-weight: bold;
+  padding: 25px;
+  border-radius: 5px;
 }
 
 /* You may need to adjust these button styles based on your Button component */

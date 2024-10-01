@@ -15,28 +15,33 @@ function FeedbackForm() {
       const form = e.target;
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-      const fdData = { key: Date.now(), ...data };
 
       const response = await fetch(
-        "https://to-do-list-c24eb-default-rtdb.firebaseio.com/feedbacks.json",
+        "https://portfolio-backnd.vercel.app/query",
         {
           method: "POST",
-          body: JSON.stringify({ fdData }),
+          body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
+      const dataa = await response.json();
+      // console.log(dataa.errors[0].msg);
       if (!response.ok) {
-        throw new Error("Sending feedback data failed.");
+        console.log("hello");
+
+        throw new Error(dataa.errors[0].msg || "Sending feedback data failed.");
       }
 
       setSubmitMessage("Feedback submitted successfully!");
       form.reset();
     } catch (error) {
       console.error("Error during form submission:", error.message);
-      setSubmitMessage("Error submitting feedback. Please try again.");
+      setSubmitMessage(
+        error.message || "Error submitting feedback. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -56,22 +61,17 @@ function FeedbackForm() {
         </div>
         <div className="form-group">
           <label htmlFor="phone">Phone Number</label>
-          <input id="phone" type="tel" name="phone" required minLength={6} />
+          <input
+            id="phone"
+            type="tel"
+            name="phoneNumber"
+            required
+            minLength={6}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="query">Your Feedback/Query</label>
           <textarea name="query" id="query" required rows="4"></textarea>
-        </div>
-        <div className="form-group checkbox">
-          <label htmlFor="terms-and-conditions">
-            <input
-              type="checkbox"
-              id="terms-and-conditions"
-              required
-              name="terms"
-            />
-            I agree to the terms and conditions
-          </label>
         </div>
         <div className="form-actions">
           <Button type="reset" disabled={isSubmitting}>
@@ -81,7 +81,18 @@ function FeedbackForm() {
             {isSubmitting ? "Sending..." : "Send Feedback"}
           </Button>
         </div>
-        {submitMessage && <p className="submit-message">{submitMessage}</p>}
+        {submitMessage && (
+          <p
+            className="submit-message"
+            style={{
+              backgroundColor: submitMessage.includes("successfully")
+                ? "#3ffc19"
+                : "#ff0000",
+            }}
+          >
+            {submitMessage}
+          </p>
+        )}
       </form>
     </div>
   );
